@@ -2,13 +2,13 @@
 .code-editor-container {
   display: flex;
   height: 100vh;
-  background-color:  rgb(39, 25, 25);
+  background-color: rgb(39, 25, 25);
 }
 
 .sidebar {
   width: 200px;
   padding: 20px;
-  margin-top:20px ;
+  margin-top: 20px;
   background-color: #1c2130;
   color: #dddd;
   display: flex;
@@ -40,7 +40,6 @@
   padding: 20px;
   width: 100%;
   background: rgb(39, 25, 25);
-  position: relative;
 }
 .code-editor textarea {
   flex: 1;
@@ -54,16 +53,6 @@
   color: white;
   font-size: 1.3rem;
 }
-.code-editor button {
-  background: #4e286d;
-  color: white;
-  outline: none;
-  border: 1px solid #8a3fc7;
-  border-radius: 3px;
-  position: absolute;
-  bottom: 8%;
-  right: 8%;
-}
 
 .console {
   width: 400px;
@@ -71,25 +60,32 @@
   background: #1c2130;
   color: white;
   border-radius: 5px;
-  
-  margin-top:20px ;
+  position: relative;
+  margin-top: 20px;
 }
-
-.console h2 { 
+.console button {
+  background: #4e286d;
   color: white;
-
+  outline: none;
+  border: 1px solid #8a3fc7;
+  border-radius: 3px;
+  position: absolute;
+  top: 4%;
+  right: 8%;
 }
 
+.console h2 {
+  color: white;
+}
 
-.current-Mode{
+.current-Mode {
   font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
-.current-Mode span{
-font-size: 24px;
-color: red;
-cursor: pointer;
+.current-Mode span {
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
 }

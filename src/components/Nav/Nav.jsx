@@ -46,26 +46,22 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#features">
+                  <a className="nav-link" href="/#features">
                     Features
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Language{" "}
-                  </a>
-                </li>
+              
                 {login && (
                   <li className="nav-item">
-                    <Link className="nav-link" href={"profile"}>
+                    <Link className="nav-link" href={"/profile"}>
                       Profile
                     </Link>
                   </li>
                 )}
                 <li className="nav-item">
-                  <a className="nav-link" href="#faq">
+                  <Link className="nav-link" href="/#faq">
                     FAQ{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   {/* Button trigger modal */}
