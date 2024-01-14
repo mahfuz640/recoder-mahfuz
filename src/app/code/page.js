@@ -46,6 +46,12 @@ const CodeEditor = () => {
             } */}
               <option value="javascript">JavaScript</option>
               <option value="python">Python</option>
+              <option value="C++">C++</option>
+              <option value="Java">Java</option>
+              <option value="PHP">Php</option>
+              <option value="Kotlin">Kotlin</option>
+              <option value="Ruby">Ruby</option>
+              <option value="C Language">C Language</option>
               {/* Add more language options as needed */}
             </select>
           </label>
@@ -92,7 +98,7 @@ const CodeEditor = () => {
               alignItems: "center",
             }}
           >
-            <span>HTML EDITOR</span>
+            <span>WEB EDITOR</span>
             <FaHtml5 />
           </h5>
         </div>
