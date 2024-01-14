@@ -126,7 +126,7 @@ const page = () => {
           {/* contribution */}
           <div>
             <h2 style={{ padding: "20px 0px" }}>Contribution</h2>
-            <img style={{width:'100%'}} src="https://ghchart.rshah.org/rabbi640" alt="" />
+            <img style={{width:'100%'}} src="https://ghchart.rshah.org/mahfuz640" alt="" />
           </div>
           <div style={{paddingBottom:'50px'}} >
           <h2 style={{ padding: "20px 0px" ,marginTop:'50px' }}>Code TIme</h2>
