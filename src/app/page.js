@@ -12,6 +12,7 @@ import languageSVG from "@/imgs/Language.svg";
 import ReactTyped from "react-typed";
 import "../../node_modules/bootstrap/dist/js/bootstrap.min";
 import Nav from "@/components/Nav/Nav";
+
 import Link from "next/link";
 export default function Home() {
   const arr = [
@@ -34,7 +35,7 @@ export default function Home() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
 
       <section className="home" id="home">
         <div className="container">
@@ -111,7 +112,6 @@ export default function Home() {
             d="M0,224L60,224C120,224,240,224,360,197.3C480,171,600,117,720,128C840,139,960,213,1080,213.3C1200,213,1320,139,1380,101.3L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
           ></path>
         </svg>
-       
       </section>
       {/* FEATURES START*/}
       <section className="features" id="features">

@@ -1,12 +1,51 @@
 "use client";
 import CodeTime from "@/components/CodeTime/CodeTime";
 import Nav from "@/components/Nav/Nav";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { useSelector, useDispatch } from "react-redux";
 
-const page = () => {
+const Profile = () => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!selectedFile) {
+      console.error("No file selected");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+
+    try {
+      const response = await fetch("https://api.imgbb.com/1/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Image uploaded successfully:", data);
+        // You can dispatch an action to update the user's image in the Redux store
+      } else {
+        console.error("Failed to upload image:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <div style={{ background: "#ffffff" }}>
         <div
           style={{
@@ -18,13 +57,18 @@ const page = () => {
           <p align="center">
             <img
               src="https://i.ibb.co/grxVK2q/Man-sunglasses-portrait-avatar.jpg"
+              // src={currentUser?.user.image}
               alt="Man-sunglasses-portrait-avatar"
               width={250}
             />
+            <form onSubmit={handleSubmit}>
+              <input type="file" onChange={handleFileChange} />
+            </form>
           </p>
           <h1>
             {" "}
-            Hello Fellow &lt; Developers/ &gt;!{" "}
+            Hello Fellow &lt;{" "}
+            {currentUser ? ` ${currentUser.user.name} />` : " developer"}{" "}
             <img
               src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
               width="20px"
@@ -126,12 +170,25 @@ const page = () => {
           {/* contribution */}
           <div>
             <h2 style={{ padding: "20px 0px" }}>Contribution</h2>
-            <img style={{width:'100%'}} src="https://ghchart.rshah.org/mahfuz640" alt="" />
+            <img
+              style={{ width: "100%" }}
+              src="https://ghchart.rshah.org/mahfuz640"
+              alt=""
+            />
           </div>
-          <div style={{paddingBottom:'50px'}} >
-          <h2 style={{ padding: "20px 0px" ,marginTop:'50px' }}>Code TIme</h2>
-            
-          <CodeTime />
+          <div style={{ paddingBottom: "50px" }}>
+            <h2 style={{ padding: "20px 0px", marginTop: "50px" }}>
+              Code TIme
+            </h2>
+
+            <CodeTime />
+          </div>
+          <div style={{ paddingBottom: "50px" }}>
+            <h2 style={{ padding: "20px 0px", marginTop: "50px" }}>
+              Code Analytics
+            </h2>
+
+            <CodeTime />
           </div>
         </div>
       </div>
@@ -139,4 +196,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Profile;

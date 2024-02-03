@@ -29,7 +29,7 @@ const CodeEditor = () => {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
 
       <div className="code-editor-container" style={!dark ? LightStyle : {}}>
         <div className="sidebar" style={!dark ? LightStyle : {}}>
