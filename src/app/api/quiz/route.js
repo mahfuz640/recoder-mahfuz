@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    const { question, answer } = await req.json();
+    const { title, question, answer } = await req.json();
     console.log(question);
     console.log(answer);
 
@@ -12,6 +12,7 @@ export async function POST(req) {
     // Create new quiz
     const newQuiz = await prisma.quiz.create({
       data: {
+        title,
         question,
         answer,
       },

@@ -1,0 +1,51 @@
+.by {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  min-height: 90vh;
+  background: linear-gradient(#ee8dd1, #bb6ef5, #9926f0);
+}
+
+.by p {
+  font-size: 30px;
+  text-align: center;
+  padding: 4px;
+}
+
+.cards {
+  width: full;
+  background-color: transparent;
+  border: 1px solid green;
+  margin: 13px;
+}
+
+.macls {
+  border: 1px solid slateblue;
+  color: rgb(46, 46, 80);
+  padding: 20px;
+  margin: 12px;
+}
+
+.textBox {
+  font-size: 20px;
+}
+
+.btm {
+  width: 10%;
+  height: 40px;
+  background: #482dac;
+  border: none;
+  outline: none;
+  /* border-radius: 40px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fffafa;
+  font-weight: 600;
+}
+
+.solve {
+  padding: 12px;
+  margin-right: 11px;
+}

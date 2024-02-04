@@ -1,5 +1,5 @@
 "use client";
-
+import style from './Dashboard.module.css'
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -35,12 +35,22 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div>
+      <div className={style.full_body}>
         <form className="" onSubmit={handleSubmit(handleRegister)}>
           <div className="container cona">
             <h1 className="form-title">Create Questions</h1>
 
             <div className="main-user-info">
+              <div className="user-input-box">
+                <label htmlFor="name">Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  {...register("title")}
+                  name="title"
+                  placeholder="Enter title"
+                />
+              </div>
               <div className="user-input-box">
                 <label htmlFor="name">Questions</label>
                 <input
@@ -65,7 +75,7 @@ const Dashboard = () => {
             </div>
 
             <div>
-              <button className="form-submit-btn" type="submit">
+              <button className={style.btm} type="submit">
                 Create
               </button>
             </div>

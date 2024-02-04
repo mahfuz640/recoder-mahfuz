@@ -1,10 +1,23 @@
-.csdf {
-  background-color: aliceblue;
-  padding: 22%;
+.full_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(#ee8dd1, #bb6ef5, #9926f0);
 }
 
-.mji {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.btm {
+  width: 50%;
+  height: 50px;
+  margin: 3%;
+  padding: 3px;
+  background: #000000;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fffafa;
+  font-weight: 600;
 }

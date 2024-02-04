@@ -8,16 +8,16 @@ import { Toaster } from "react-hot-toast";
 import { Providers } from "@/statemanagement/provider";
 
 export const metadata = {
-  title: "Coder",
+  title: "Recoder",
   description: "",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      {/* <head>
         <link rel="icon" type="image/png" href={assext} />
-      </head>
+      </head> */}
       <body className={inter.className}>
         <Providers>
           <Nav />

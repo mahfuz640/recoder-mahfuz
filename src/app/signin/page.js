@@ -9,6 +9,10 @@ import {
   signInStart,
   signInSuccess,
 } from "@/statemanagement/features/user/userSlice";
+import Link from "next/link";
+import style from "./Signin.module.css";
+import logoWhite from "@/imgs/logo-white.png";
+import Image from "next/image";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -19,6 +23,7 @@ const Page = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       dispatch(signInStart());
       const res = await fetch("/api/signin", {
@@ -40,11 +45,14 @@ const Page = () => {
         dispatch(signInFailure(data.message));
         return;
       }
+      setLoading(false);
       dispatch(signInSuccess(data));
       toast.success("Login successful");
       router.push("/");
     } catch (error) {
       console.error("Fetch error:", error.message);
+      toast.error("Invalid email password credential");
+      setLoading(false);
       dispatch(signInFailure(error.message));
     }
   };
@@ -52,39 +60,41 @@ const Page = () => {
   // "/api/signin"
   return (
     <>
-      <form onSubmit={handleLogin}>
-        <p>Username | Email ID</p>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter Username"
-        />
-        <p>Password</p>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter Password"
-        />
-        {/* <input type="submit" name="submit" defaultValue="Login" /> */}
-        <button type="submit" disabled={loading}>
-          Login
-        </button>
-        <a data-bs-toggle="modal" href="#forgetModalToggle">
-          Forget Password
-        </a>
-        |
-        <a
-          className="btn "
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-        >
-          Registration
-        </a>
-      </form>
+      <div className={style.full_body}>
+        <div className={style.wrapper}>
+          <form onSubmit={handleLogin}>
+            <Image width={320} src={logoWhite} alt="" />
+            <div className={style.input_box}>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="username or email"
+                required
+              />
+            </div>
+            <div className={style.input_box}>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="password"
+                required
+              />
+            </div>
+
+            <button type="submit" className={style.btm}>
+              {loading ? "Login in..." : "Login"}
+            </button>
+            <div className={style.register_link}>
+              <p>
+                Don&apos;t have an account?
+                <Link className={style.limk} href="/signup">
+                  Register
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
     </>
   );
 };

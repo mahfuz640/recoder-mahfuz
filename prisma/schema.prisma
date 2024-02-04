@@ -25,6 +25,7 @@ model User {
 
 model Quiz {
   id       Int      @id @default(autoincrement())
+  title    String
   question String
   answer   String
   createdAt DateTime  @default(now())

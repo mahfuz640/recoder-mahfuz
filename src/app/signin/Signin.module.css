@@ -1,0 +1,94 @@
+.full_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(#ee8dd1, #bb6ef5, #9926f0);
+}
+.wrapper {
+  position: relative; /* Add this line to establish a positioning context for the input box */
+  width: 450px;
+  background: rgba(78, 40, 109, 0.5);
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid pink;
+  padding: 30px 40px;
+}
+.wrapper h1 {
+  font-size: 36px;
+  padding: 3px;
+  text-align: center;
+}
+
+.wrapper .input_box {
+  width: 100%; /* Adjust input box width to fit inside the wrapper */
+  height: 50px;
+  /* Adjust margin for better spacing */
+  margin: 3%;
+}
+
+.input_box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 20px 20px 40px; /* Adjust padding for better positioning of text */
+}
+
+.input_box {
+  /* Remove the position, right, top, and transform properties */
+  font-size: 20px;
+}
+
+.input_box input::placeholder {
+  color: #fff;
+}
+
+.wrapper .remember_forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember_forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
+}
+
+.wrapper .btm {
+  width: 50%;
+  height: 50px;
+  margin: 3%;
+  padding: 3px;
+  background: #000000;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fffafa;
+  font-weight: 600;
+}
+
+.wrapper .register_link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register_link p .limk {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register_link p .limk:hover {
+  text-decoration: underline;
+}

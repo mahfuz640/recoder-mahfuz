@@ -1,5 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import style from "./Problem.module.css";
+import Link from "next/link";
 
 const ProblemSolving = () => {
   const [posts, setPosts] = useState([]);
@@ -10,6 +12,8 @@ const ProblemSolving = () => {
         const res = await fetch("/api/getquiz");
         const data = await res.json();
         console.log(data.quizzes);
+        console.log(data);
+        console.log(data.quizzes.id);
         setPosts(data.quizzes);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -20,12 +24,25 @@ const ProblemSolving = () => {
   }, []);
 
   return (
-    <div>
-      <p>Problem solving </p>
-      {posts.map((post) => (
-        <li key={post.id}>{post.question}</li>
-      ))}
-    </div>
+    <>
+      <div className={style.by}>
+        <p>Problem solving </p>
+        <div className={style.cards}>
+          {posts.map((post) => (
+            <div className={style.macls} key={post.id}>
+              <b>Problem</b>
+              <span className={style.textBox}>{post.title}</span>
+              <br />
+              <div className={style.solve}>
+                <Link href={`/problem-solving/${post.id}`}>
+                  <button className={style.btm}>Solve</button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

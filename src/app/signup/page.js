@@ -1,10 +1,13 @@
 "use client";
-
+import style from "./Signup.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Link from "next/link";
+import logoWhite from "@/imgs/logo-white.png";
+import Image from "next/image";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -30,67 +33,69 @@ const Signup = () => {
       }
     } catch (error) {
       console.error("Error:", error);
+      toast.error("Faild to create account");
+      setLoading(false);
     } finally {
       setLoading(false);
     }
   };
   return (
     <>
-      <form className="" onSubmit={handleSubmit(handleRegister)}>
-        <div className="container cona">
-          <h1 className="form-title">Registration</h1>
-
-          <div className="main-user-info">
-            <div className="user-input-box">
-              <label htmlFor="name">Full Name</label>
+      <div className={style.full_body}>
+        <div className={style.wrapper}>
+          <form onSubmit={handleSubmit(handleRegister)}>
+            <Image width={320} src={logoWhite} alt="" />
+            <div className={style.input_box}>
               <input
+                {...register("name")}
                 type="text"
                 id="name"
-                {...register("name")}
-                name="name"
-                placeholder="Enter Full Name"
+                placeholder="Your name"
+                required
               />
             </div>
-            <div className="user-input-box">
-              <label htmlFor="username">Username</label>
+            <div className={style.input_box}>
               <input
+                {...register("username")}
                 type="text"
                 id="username"
-                {...register("username")}
-                name="username"
-                placeholder="Enter Username"
+                placeholder="username"
+                required
               />
             </div>
-            <div className="user-input-box">
-              <label htmlFor="email">Email</label>
+            <div className={style.input_box}>
               <input
+                {...register("email")}
                 type="email"
                 id="email"
-                {...register("email")}
-                name="email"
-                placeholder="Enter Email"
+                placeholder="Your email"
+                required
               />
             </div>
-
-            <div className="user-input-box">
-              <label htmlFor="password">Password</label>
+            <div className={style.input_box}>
               <input
+                {...register("password")}
                 type="password"
                 id="password"
-                {...register("password")}
-                name="password"
-                placeholder="Enter Password"
+                placeholder="Your Password"
+                required
               />
             </div>
-          </div>
 
-          <div>
-            <button className="form-submit-btn" type="submit">
-              Register
+            <button type="submit" className={style.btm}>
+              {loading ? "Creating Account..." : "Register"}
             </button>
-          </div>
+            <div className={style.register_link}>
+              <p>
+                Already have an account?
+                <Link className={style.limk} href="/signin">
+                  Login
+                </Link>
+              </p>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </>
   );
 };

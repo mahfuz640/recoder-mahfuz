@@ -11,7 +11,7 @@ import arrangingSvg from "@/imgs/Arranging.svg";
 import languageSVG from "@/imgs/Language.svg";
 import ReactTyped from "react-typed";
 import "../../node_modules/bootstrap/dist/js/bootstrap.min";
-import Nav from "@/components/Nav/Nav";
+
 
 import Link from "next/link";
 export default function Home() {
@@ -386,7 +386,7 @@ export default function Home() {
           </div>
           <div className="container cus-pad-max" />
           <div className="row">
-            <div className="col-3">
+            <div style={{"margin-bottom": "20px"}} className="col-3">
               <div className="company">
                 <Image
                   width="40%"
@@ -413,10 +413,10 @@ export default function Home() {
                 <h3 className="footer--title">Account</h3>
                 <ul className="footer-text">
                   <li>
-                    <a href="#home">Login</a>
+                    <Link href="/signin">Login</Link>
                   </li>
                   <li>
-                    <a href="#sign-up">Sign Up</a>
+                    <Link href="/signup">Sign Up</Link>
                   </li>
                 </ul>
               </div>
@@ -426,17 +426,13 @@ export default function Home() {
                 <h3 className="footer--title">SITE</h3>
                 <ul className="footer-text">
                   <li>
-                    <a href="#home">Home</a>
+                    <Link href="/">Home</Link>
                   </li>
+                  
                   <li>
-                    <a href="#features">Features</a>
+                    <Link href="/signup">Sign Up</Link>
                   </li>
-                  <li>
-                    <a href="#sign-up">Sign Up</a>
-                  </li>
-                  <li>
-                    <a href="#faq">FAQ</a>
-                  </li>
+                
                 </ul>
               </div>
             </div>
