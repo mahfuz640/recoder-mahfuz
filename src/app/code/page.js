@@ -1,13 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "@/app/code/CodeEditor.css";
 import Nav from "@/components/Nav/Nav";
 import { CiCloudSun } from "react-icons/ci";
 import { FaHtml5 } from "react-icons/fa";
+import { compiler } from "@/lib/compiler";
 
 const CodeEditor = () => {
   const [code, setCode] = useState("// Write your code here");
-  const [language, setLanguage] = useState("javascript");
+  const [language, setLanguage] = useState(null);
+  const [languages, setLanguages] = useState([]);
+  const [stdIn, setStdIn] = useState(null)
+  const [stdOut, setStdOut] = useState(null)
   const [version, setVersion] = useState("latest");
   const [dark, setDark] = useState(true);
 
@@ -22,10 +26,42 @@ const CodeEditor = () => {
   const handleVersionChange = (newVersion) => {
     setVersion(newVersion);
   };
+
+  const handleRunCode = () => {
+    if (!language) {
+      // Show modal for language change
+    }
+
+    compiler({
+      method: "POST",
+      url: "/submissions",
+      data: {
+        language_id: language,
+        source_code: code,
+        stdin: stdIn,
+      }
+    }).then(({ data }) => {
+      compiler(`/submissions/${data.token}`).then(({ data }) => {
+        setStdOut(data.stdout)
+      })
+    })
+  }
+
   const LightStyle = {
     background: "white",
     color: "black",
   };
+
+  // Getting complier supporting languages
+  useEffect(() => {
+    compiler('/languages')
+      .then(({ data }) => {
+        // Set on page state and default
+        setLanguages(data)
+        setLanguage(data[0].id)
+      })
+      .catch(() => console.log("Something went wrong!"))
+  }, [])
 
   return (
     <div>
@@ -41,18 +77,9 @@ const CodeEditor = () => {
               value={language}
               onChange={(e) => handleLanguageChange(e.target.value)}
             >
-              {/* {
-              data.map(dt=><option value={dt} key={dt}>{dt}</option>)
-            } */}
-              <option value="javascript">JavaScript</option>
-              <option value="python">Python</option>
-              <option value="C++">C++</option>
-              <option value="Java">Java</option>
-              <option value="PHP">Php</option>
-              <option value="Kotlin">Kotlin</option>
-              <option value="Ruby">Ruby</option>
-              <option value="C Language">C Language</option>
-              {/* Add more language options as needed */}
+              {languages.length ? languages.map(({ id, name }) => {
+                return <option key={id} value={id}>{name}</option>
+              }) : <option value="0">No language found</option>}
             </select>
           </label>
           <label>
@@ -72,7 +99,7 @@ const CodeEditor = () => {
             <select
               style={!dark ? { ...LightStyle, border: "1px solid gray" } : {}}
               value={language}
-              // onChange={(e) => handleLanguageChange(e.target.value)}
+            // onChange={(e) => handleLanguageChange(e.target.value)}
             >
               <option value="runCode">Run Code</option>
               <option value="debugCode">Debug Code</option>
@@ -107,15 +134,17 @@ const CodeEditor = () => {
           style={
             !dark
               ? {
-                  ...LightStyle,
-                  borderRight: "1px solid gray",
-                  borderLeft: "1px solid gray",
-                }
+                ...LightStyle,
+                borderRight: "1px solid gray",
+                borderLeft: "1px solid gray",
+              }
               : {}
           }
         >
           <textarea
             placeholder="//write your code"
+            value={code}
+            onChange={e => handleCodeChange(undefined, undefined, e.target.value)}
             style={
               !dark
                 ? { ...LightStyle, border: "1px solid gray", outline: "border" }
@@ -125,8 +154,8 @@ const CodeEditor = () => {
         </div>
         <div className="console" style={!dark ? LightStyle : {}}>
           <h2 style={!dark ? LightStyle : {}}>Console</h2>
-          {/* Add a console display here */}
-          <button>RUN </button>
+          {stdOut}
+          <button onClick={() => handleRunCode()}>RUN </button>
         </div>
       </div>
     </div>
