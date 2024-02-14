@@ -1,0 +1,50 @@
+.code-editor-container {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(39, 25, 25);
+    width: auto;
+  }
+  
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #1c2130;
+    color: #dddd;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 5px;
+  }
+
+  
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #1c2130;
+    color: #dddd;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 5px;
+  }
+  
+  .sidebar h2 {
+    color: #dddd;
+  }
+  
+  .sidebar label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: #fff;
+  }
+  

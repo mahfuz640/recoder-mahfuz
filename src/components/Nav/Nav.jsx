@@ -120,12 +120,29 @@ const Nav = () => {
                       problem solving
                     </Link>
                   </li>
-                ) : null}
-                {/* <Link className="nav-link" href="/problem-solving">
-                  problem solving
-                </Link> */}
-
-                <li className="nav-item">
+                ) : (
+                  <li className="nav-item">
+                  <Link className="nav-link" href="/signin">
+                    problem solving
+                  </Link>
+                </li>
+                )}
+          
+               
+                {currentUser ? (
+                  <li className="nav-item">
+                    <Link className="nav-link" href="/code-converter">
+                      code converter
+                    </Link>
+                  </li>
+                ) : (
+                  <li className="nav-item">
+                    <Link className="nav-link" href="/signin">
+                    code converter
+                    </Link>
+                  </li>
+                )}
+                 <li className="nav-item">
                   <Link className="nav-link" href="/#faq">
                     FAQ{" "}
                   </Link>
