@@ -96,7 +96,7 @@ const Profile = () => {
 
           <div size="30px">
             {" "}
-            Hi! My name is Mynul Islam. Thank You for taking the time to view my
+            Hi! My name is {currentUser.user.name}. Thank You for taking the time to view my
             GitHub Profile :smile:
           </div>
           <h2>
@@ -125,7 +125,7 @@ const Profile = () => {
 
           <h2>
             Connect with me{" "}
-            <a href="https://mynul-s-portfolio.netlify.app/" target="_blank">
+            <a href="https://github.com/mahfuz640/" target="_blank">
               My Web
             </a>
             <a />
