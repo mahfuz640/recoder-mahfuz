@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
 
 const Profile = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -61,9 +62,7 @@ const Profile = () => {
               alt="Man-sunglasses-portrait-avatar"
               width={250}
             />
-            <form onSubmit={handleSubmit}>
-              <input type="file" onChange={handleFileChange} />
-            </form>
+            <Link href="#">Update</Link>
           </p>
           <h1>
             {" "}
@@ -73,7 +72,9 @@ const Profile = () => {
               src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
               width="20px"
             />{" "}
+            
           </h1>
+          <Link href={`/profile/${currentUser.user.id}`} >Update Profile</Link>
           <p align="center"></p>
           <p>
             <img
@@ -92,6 +93,7 @@ const Profile = () => {
               alt="Github"
               src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif"
             />
+            <Link href="/code">code</Link>
           </p>
 
           <div size="30px">
@@ -102,6 +104,7 @@ const Profile = () => {
           <h2>
             {" "}
             About Me{" "}
+            
             <img
               src="https://media0.giphy.com/media/KDDpcKigbfFpnejZs6/giphy.gif?cid=ecf05e47oy6f4zjs8g1qoiystc56cu7r9tb8a1fe76e05oty&rid=giphy.gif"
               width="100px"

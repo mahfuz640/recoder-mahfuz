@@ -136,6 +136,30 @@ const CodeEditor = () => {
             <FaHtml5 />
           </h5>
         </div>
+        {/* <div
+          className="code-editor"
+          style={
+            !dark
+              ? {
+                  ...LightStyle,
+                  borderRight: "1px solid gray",
+                  borderLeft: "1px solid gray",
+                }
+              : {}
+          }
+        >
+         <div>
+         <form >
+    <textarea
+      placeholder="//write your code"
+      value={code}
+      style={!dark ? { ...LightStyle, border: "1px solid gray", outline: "border" } : {}}
+    ></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+         </div>
+        </div> */}
         <div
           className="code-editor"
           style={
@@ -148,23 +172,24 @@ const CodeEditor = () => {
               : {}
           }
         >
+          <form style={{width: "100%", height: "100%"}}>
           <textarea
-            placeholder="//write your code"
-            value={code}
-            onChange={(e) =>
-              handleCodeChange(undefined, undefined, e.target.value)
-            }
-            style={
-              !dark
-                ? { ...LightStyle, border: "1px solid gray", outline: "border" }
-                : {}
-            }
-          ></textarea>
+      placeholder="//write your code"
+      value={code}
+      style={!dark ? { ...LightStyle, border: "1px solid gray", outline: "border" } : {}}
+    ></textarea>
+    <button style={{ position: "absolute", top: 99, right: 443, backgroundColor: "green", color: "white", borderRadius: "12px" }}>Run</button>
+          </form>
         </div>
         <div className="console" style={!dark ? LightStyle : {}}>
           <h2 style={!dark ? LightStyle : {}}>Console</h2>
           {stdOut}
-          <button onClick={() => handleRunCode()}>RUN </button>
+          {/* <button onClick={() => handleRunCode()}>RUN </button> */}
+          <textarea style={{backgroundColor: "#1c2130", width: "100%", height: "100%", color: "white"}}
+            placeholder="output" disabled
+          >
+            
+          </textarea>
         </div>
       </div>
     </div>
