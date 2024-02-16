@@ -9,3 +9,26 @@ export const compiler = axios.create({
     "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
   },
 });
+
+export const createSubmission = async (code, language, stdIn) => {
+  const { data: res } = await compiler({
+    method: "POST",
+    url: "/submissions",
+    data: {
+      language_id: language,
+      source_code: code,
+      stdin: stdIn,
+    },
+  });
+
+  return res;
+};
+
+export const getSubmission = async (token) => {
+  const { data } = await compiler(`/submissions/${token}`);
+  if (data.status.id === 2) {
+    return await getSubmission(token);
+  }
+
+  return data;
+};
