@@ -132,7 +132,7 @@ const CodeEditor = () => {
               alignItems: "center",
             }}
           >
-            <span>WEB EDITOR</span>
+            <span><a style={{textDecoration: "none"}} href="https://mahfuz640.github.io/live-code-editor/" target="_blank">WEB EDITOR</a></span>
             <FaHtml5 />
           </h5>
         </div>
