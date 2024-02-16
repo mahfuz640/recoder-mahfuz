@@ -176,8 +176,12 @@ const CodeEditor = () => {
           <textarea
       placeholder="//write your code"
       value={code}
+      onChange={(e) => setCode(e.target.value)}
       style={!dark ? { ...LightStyle, border: "1px solid gray", outline: "border" } : {}}
-    ></textarea>
+    >
+      <input/>
+    </textarea>
+    <input/>
     <button style={{ position: "absolute", top: 99, right: 443, backgroundColor: "green", color: "white", borderRadius: "12px" }}>Run</button>
           </form>
         </div>
