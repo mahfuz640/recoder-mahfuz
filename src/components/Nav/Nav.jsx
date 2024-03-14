@@ -117,13 +117,13 @@ const Nav = () => {
                 {currentUser ? (
                   <li className="nav-item">
                     <Link className="nav-link" href="/problem-solving">
-                      problem solving
+                      Problem solving
                     </Link>
                   </li>
                 ) : (
                   <li className="nav-item">
                   <Link className="nav-link" href="/signin">
-                    problem solving
+                    Problem solving
                   </Link>
                 </li>
                 )}
@@ -132,13 +132,13 @@ const Nav = () => {
                 {currentUser ? (
                   <li className="nav-item">
                     <Link className="nav-link" href="/code-converter">
-                      code converter
+                      Code converter
                     </Link>
                   </li>
                 ) : (
                   <li className="nav-item">
                     <Link className="nav-link" href="/signin">
-                    code converter
+                    Code converter
                     </Link>
                   </li>
                 )}

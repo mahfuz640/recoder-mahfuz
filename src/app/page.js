@@ -17,7 +17,7 @@ import Link from "next/link";
 export default function Home() {
   const arr = [
     "print('Hello, Programmer')",
-    'System.out.println("Welcome to programmeing world")',
+    'System.out.println("Welcome to programming world")',
     'console.log("How are you Programmer")',
     "SELECT 'Hello, World' FROM DUAL",
     'printf("Hello, World")',

@@ -179,9 +179,7 @@ const CodeEditor = () => {
       onChange={(e) => setCode(e.target.value)}
       style={!dark ? { ...LightStyle, border: "1px solid gray", outline: "border" } : {}}
     >
-      <input/>
     </textarea>
-    <input/>
     <button style={{ position: "absolute", top: 99, right: 443, backgroundColor: "green", color: "white", borderRadius: "12px" }}>Run</button>
           </form>
         </div>
